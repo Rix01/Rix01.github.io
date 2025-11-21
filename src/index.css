@@ -1,0 +1,387 @@
+/* Google Fonts - JetBrains Mono - must be first! */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Tailwind CSS의 기본 스타일을 import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 전역 스타일 설정 - 터미널 느낌 */
+:root {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* Dark mode (기본) */
+body {
+  background-color: #0a0e27;
+  color: #00ff41;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 65, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 3px
+    );
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode - 부드러운 베이지 톤 */
+html:not(.dark) body {
+  background-color: #faf9f6;
+  color: #1a1a1a;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.015) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.015) 3px
+    );
+}
+
+/* 스크롤바 스타일 - Dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0a0e27;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00ff41;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00d9ff;
+}
+
+/* 스크롤바 스타일 - Light mode */
+html:not(.dark) ::-webkit-scrollbar-track {
+  background-color: #faf9f6;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background-color: #2563eb;
+}
+
+/* 커스텀 컴포넌트 스타일 */
+@layer components {
+  /* 터미널 스타일 박스 - Dark mode */
+  .terminal-box {
+    background-color: #151934;
+    border: 1px solid #1e2749;
+    @apply rounded-lg p-6 shadow-lg;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  /* 터미널 스타일 박스 - Light mode */
+  html:not(.dark) .terminal-box {
+    background-color: #f8f8f6;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* 터미널 프롬프트 */
+  .prompt::before {
+    content: '$ ';
+    color: #00d9ff;
+  }
+
+  /* 커서 깜빡임 */
+  .cursor::after {
+    content: '▋';
+    color: #00ff41;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* 마크다운 콘텐츠 스타일 - Dark mode */
+  .markdown-content pre {
+    background-color: #151934;
+    color: #00ff41;
+    border: 1px solid #1e2749;
+    @apply p-4 rounded-lg overflow-x-auto my-4;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+  }
+
+  .markdown-content code {
+    background-color: #151934;
+    color: #00d9ff;
+    border: 1px solid #1e2749;
+    @apply px-2 py-0.5 rounded text-sm;
+  }
+
+  .markdown-content pre code {
+    background: transparent;
+    color: #00ff41;
+    border: 0;
+    @apply p-0;
+  }
+
+  /* 마크다운 콘텐츠 스타일 - Light mode */
+  html:not(.dark) .markdown-content pre {
+    background-color: #f0f0ed;
+    color: #1a1a1a;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  }
+
+  html:not(.dark) .markdown-content code {
+    background-color: #f0f0ed;
+    color: #2563eb;
+    border: 1px solid #ddd;
+  }
+
+  html:not(.dark) .markdown-content pre code {
+    background: transparent;
+    color: #1a1a1a;
+    border: 0;
+  }
+
+  .markdown-content h1 {
+    color: #00ff41;
+    @apply text-3xl font-bold mt-8 mb-4;
+  }
+
+  .markdown-content h1::before {
+    content: '# ';
+    color: #6272a4;
+  }
+
+  html:not(.dark) .markdown-content h1 {
+    color: #1a1a1a;
+  }
+
+  html:not(.dark) .markdown-content h1::before {
+    color: #9ca3af;
+  }
+
+  .markdown-content h2 {
+    color: #00d9ff;
+    @apply text-2xl font-bold mt-6 mb-3;
+  }
+
+  .markdown-content h2::before {
+    content: '## ';
+    color: #6272a4;
+  }
+
+  html:not(.dark) .markdown-content h2 {
+    color: #2563eb;
+  }
+
+  html:not(.dark) .markdown-content h2::before {
+    color: #9ca3af;
+  }
+
+  .markdown-content h3 {
+    color: #bd93f9;
+    @apply text-xl font-bold mt-4 mb-2;
+  }
+
+  .markdown-content h3::before {
+    content: '### ';
+    color: #6272a4;
+  }
+
+  html:not(.dark) .markdown-content h3 {
+    color: #7c3aed;
+  }
+
+  html:not(.dark) .markdown-content h3::before {
+    color: #9ca3af;
+  }
+
+  .markdown-content p {
+    @apply mb-4 leading-7;
+    color: #d1d5db;
+  }
+
+  html:not(.dark) .markdown-content p {
+    color: #374151;
+  }
+
+  /* Bold 텍스트 */
+  .markdown-content strong,
+  .markdown-content b {
+    font-weight: 700;
+    color: #00ff41;
+  }
+
+  html:not(.dark) .markdown-content strong,
+  html:not(.dark) .markdown-content b {
+    color: #1a1a1a;
+  }
+
+  /* Italic 텍스트 */
+  .markdown-content em,
+  .markdown-content i {
+    font-style: italic;
+    color: #bd93f9;
+  }
+
+  html:not(.dark) .markdown-content em,
+  html:not(.dark) .markdown-content i {
+    color: #7c3aed;
+  }
+
+  /* Underline 텍스트 */
+  .markdown-content u {
+    text-decoration: underline;
+    text-decoration-color: #00d9ff;
+    text-underline-offset: 2px;
+  }
+
+  html:not(.dark) .markdown-content u {
+    text-decoration-color: #2563eb;
+  }
+
+  /* Strikethrough (취소선) */
+  .markdown-content del,
+  .markdown-content s {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  /* 구분선 */
+  .markdown-content hr {
+    border: none;
+    border-top: 2px solid #1e2749;
+    @apply my-6;
+  }
+
+  html:not(.dark) .markdown-content hr {
+    border-top: 2px solid #ddd;
+  }
+
+  .markdown-content ul {
+    @apply mb-4 ml-6;
+    color: #d1d5db;
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+
+  .markdown-content ol {
+    @apply mb-4 ml-6;
+    color: #d1d5db;
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+
+  html:not(.dark) .markdown-content ul,
+  html:not(.dark) .markdown-content ol {
+    color: #374151;
+  }
+
+  .markdown-content li {
+    @apply mb-2;
+    display: list-item;
+  }
+
+  .markdown-content li::marker {
+    color: #00d9ff;
+  }
+
+  html:not(.dark) .markdown-content li::marker {
+    color: #2563eb;
+  }
+
+  .markdown-content a {
+    color: #00d9ff;
+    @apply underline;
+    text-decoration-color: rgba(0, 217, 255, 0.3);
+  }
+
+  .markdown-content a:hover {
+    color: #bd93f9;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  }
+
+  html:not(.dark) .markdown-content a {
+    color: #2563eb;
+    text-decoration-color: rgba(37, 99, 235, 0.3);
+  }
+
+  html:not(.dark) .markdown-content a:hover {
+    color: #7c3aed;
+    text-shadow: none;
+  }
+
+  .markdown-content blockquote {
+    border-left: 4px solid #00d9ff;
+    color: #a0a0a0;
+    background-color: rgba(0, 217, 255, 0.05);
+    @apply pl-4 pr-4 py-3 my-4 italic rounded;
+  }
+
+  html:not(.dark) .markdown-content blockquote {
+    border-left: 4px solid #2563eb;
+    color: #6b7280;
+    background-color: #f0f0ed;
+  }
+
+  .markdown-content blockquote p {
+    margin: 0;
+  }
+
+  .markdown-content table {
+    border: 1px solid #1e2749;
+    @apply w-full my-4;
+  }
+
+  .markdown-content th {
+    background-color: #151934;
+    color: #00ff41;
+    border: 1px solid #1e2749;
+    @apply p-2;
+  }
+
+  .markdown-content td {
+    border: 1px solid #1e2749;
+    @apply p-2;
+    color: #d1d5db;
+  }
+
+  html:not(.dark) .markdown-content th {
+    background-color: #f0f0ed;
+    color: #1a1a1a;
+    border: 1px solid #ddd;
+  }
+
+  html:not(.dark) .markdown-content td {
+    border: 1px solid #ddd;
+    color: #374151;
+  }
+
+  /* 체크박스 (task list) */
+  .markdown-content input[type="checkbox"] {
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+  /* 인라인 이미지 스타일 */
+  .markdown-content img {
+    @apply rounded-lg my-4;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #1e2749;
+  }
+
+  html:not(.dark) .markdown-content img {
+    border: 1px solid #ddd;
+  }
+}
