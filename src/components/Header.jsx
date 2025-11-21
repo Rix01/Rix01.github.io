@@ -34,7 +34,7 @@ function Header() {
               ls home
             </Link>
             <Link
-              to="/blogs"
+              to="/posts"
               className="text-gray-700 dark:text-terminal-green hover:text-blue-600 dark:hover:text-terminal-cyan transition-colors prompt"
             >
               cat posts

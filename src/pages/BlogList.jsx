@@ -144,7 +144,7 @@ function BlogList() {
         {posts.map((post, index) => (
           <Link
             key={post.id}
-            to={`/blogs/${post.slug}`}
+            to={`/posts/${post.slug}`}
             className="block terminal-box hover:border-terminal-cyan transition-all group"
           >
             {/* 파일 정보 스타일 */}

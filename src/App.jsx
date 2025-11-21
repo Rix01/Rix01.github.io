@@ -12,8 +12,8 @@ import BlogDetail from './pages/BlogDetail';
  *
  * 라우트 구조:
  * - / : 홈 페이지 (랜딩 페이지)
- * - /blogs : 블로그 목록 페이지
- * - /blogs/:id : 블로그 상세 페이지 (동적 라우트)
+ * - /posts : 블로그 목록 페이지
+ * - /posts/:id : 블로그 상세 페이지 (동적 라우트)
  */
 function App() {
   return (
@@ -32,14 +32,14 @@ function App() {
           {/*
             블로그 목록 페이지
           */}
-          <Route path="blogs" element={<BlogList />} />
+          <Route path="posts" element={<BlogList />} />
 
           {/*
             블로그 상세 페이지 (동적 라우트)
             :slug 파라미터를 통해 특정 블로그의 slug를 받음
-            예: /blogs/spring-boot-kotlin-blog 등
+            예: /posts/spring-boot-kotlin-blog 등
           */}
-          <Route path="blogs/:slug" element={<BlogDetail />} />
+          <Route path="posts/:slug" element={<BlogDetail />} />
         </Route>
       </Routes>
     </Router>

@@ -107,7 +107,7 @@ function BlogDetail() {
             ⚠️ Error: {error}
           </div>
           <button
-            onClick={() => navigate('/blogs')}
+            onClick={() => navigate('/posts')}
             className="bg-terminal-green text-terminal-bg px-4 py-2 rounded font-bold hover:bg-terminal-cyan transition-colors"
           >
             $ cd ../
@@ -139,7 +139,7 @@ function BlogDetail() {
     <article className="max-w-4xl mx-auto font-mono">
       {/* 뒤로가기 버튼 */}
       <button
-        onClick={() => navigate('/blogs')}
+        onClick={() => navigate('/posts')}
         className="mb-6 text-terminal-cyan dark:text-terminal-cyan text-blue-600 hover:text-terminal-green dark:hover:text-terminal-green hover:text-blue-700 transition-colors flex items-center gap-2 text-sm"
       >
         <span>$</span>
@@ -202,7 +202,7 @@ function BlogDetail() {
               return (
                 <Link
                   key={seriesPost.id}
-                  to={`/blogs/${seriesPost.slug}`}
+                  to={`/posts/${seriesPost.slug}`}
                   className={`flex items-center gap-3 p-2 rounded transition-colors ${
                     isCurrent
                       ? 'bg-terminal-surface dark:bg-terminal-surface bg-blue-50 border-l-4 border-terminal-cyan dark:border-terminal-cyan border-blue-600'
@@ -261,7 +261,7 @@ function BlogDetail() {
       <div className="terminal-box mt-6">
         <div className="flex items-center justify-between text-sm">
           <button
-            onClick={() => navigate('/blogs')}
+            onClick={() => navigate('/posts')}
             className="text-terminal-cyan dark:text-terminal-cyan text-blue-600 hover:text-terminal-green dark:hover:text-terminal-green hover:text-blue-700 transition-colors flex items-center gap-2"
           >
             <span>$</span>

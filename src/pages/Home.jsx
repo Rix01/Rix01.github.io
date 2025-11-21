@@ -67,7 +67,7 @@ function Home() {
           </div>
           <div className="ml-4">
             <Link
-              to="/blogs"
+              to="/posts"
               className="inline-flex items-center gap-2 bg-terminal-green text-terminal-bg px-6 py-2 rounded font-bold hover:bg-terminal-cyan transition-all hover:shadow-lg"
               style={{ boxShadow: "0 0 20px rgba(0, 255, 65, 0.3)" }}
             >
