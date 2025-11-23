@@ -46,6 +46,8 @@ jobs:
       # 4. 프로젝트 빌드
       - name: Build
         run: npm run build
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       # 5. GitHub Pages 설정
       - name: Setup Pages
