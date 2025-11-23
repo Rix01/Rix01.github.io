@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages SPA 라우팅을 위한 리다이렉트
+    // 현재 경로를 저장하고 index.html로 이동
+    sessionStorage.setItem('redirect', location.pathname + location.search + location.hash);
+    location.replace('/');
+  </script>
+</head>
+<body>
+  <!-- 페이지를 찾는 중... -->
+</body>
+</html>
